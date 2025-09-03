@@ -2,33 +2,46 @@
 <html lang="id">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gipang By Order — KueBunda</title>
-  <meta name="description" content="Gipang by order — Gipang Original & Gipang Selai. Pesan via WhatsApp, dibuat fresh setelah order." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gipang Khas Banten — By Order</title>
+  <meta name="description" content="Gipang Fresh — Gipang Original & Gipang Selai. Pesan via WhatsApp, dibuat fresh setelah order." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* small polish */
+    /* small helper */
     .card-img { height: 220px; object-fit: cover; width: 100%; border-radius: .5rem; }
-    .backdrop-blur-slight { backdrop-filter: blur(6px); }
+    .hero-h { height: calc(100vh - 72px); } /* adjust if header height changes */
+
+    .hero-carousel-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      z-index: 1;
+    }
+    .hero-carousel-img.active {
+      opacity: 1;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-  <!-- Top info -->
   <div class="bg-rose-600 text-white text-sm">
     <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
-      <div class="font-semibold">Gipang Enak • Fresh dibuat setelah order</div>
+      <div class="font-semibold">Gipang Khas Banten • Dibuat setelah order</div>
       <div class="hidden sm:block">Jam layanan: 08.00 – 20.00 WIB</div>
     </div>
   </div>
 
-  <!-- Navbar -->
   <header class="bg-white sticky top-0 z-40 border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg bg-rose-600 flex items-center justify-center text-white font-bold">G</div>
         <div>
-          <div class="text-lg font-bold">Gipang Enak</div>
+          <div class="text-lg font-bold">Gipang Khas Banten</div>
           <div class="text-xs text-gray-500 -mt-1">By Order • Fresh</div>
         </div>
       </a>
@@ -46,7 +59,6 @@
       </div>
     </div>
 
-    <!-- mobile nav -->
     <div id="mobileNav" class="md:hidden hidden border-t border-gray-100">
       <div class="px-4 py-3 flex flex-col gap-2 bg-white">
         <a href="#home" class="py-2">Home</a>
@@ -57,42 +69,27 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="bg-gradient-to-r from-rose-50 to-amber-50">
-    <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">Gipang Fresh — <span class="text-rose-600">Dibuat Setelah Anda Order</span></h1>
-        <p class="mt-4 text-gray-600">Renyah, gurih dan manis. Terima pesanan untuk acara kecil, hantaran, atau camilan harian.</p>
-        <div class="mt-6 flex gap-3">
-          <a href="#produk" class="bg-gray-900 text-white px-5 py-3 rounded-xl hover:bg-black">Lihat Produk</a>
-          <button onclick="openOrderModal()" class="px-5 py-3 rounded-xl border border-rose-200 text-rose-700 hover:bg-rose-50">Pesan Custom</button>
-        </div>
+  <section id="home" class="relative hero-h">
+    <div id="heroCarousel" class="absolute inset-0">
+      <img src="5.jpg" alt="Gipang Banten 1" class="hero-carousel-img active" />
+      <img src="3.jpg" alt="Gipang Banten 2" class="hero-carousel-img" />
+      <img src="1.jpg" alt="Gipang Banten 3" class="hero-carousel-img" />
+      <img src="3.jpg" alt="Gipang Banten 4" class="hero-carousel-img" />
+    </div>
 
-        <div class="mt-8 grid grid-cols-3 gap-3 text-center">
-          <div class="bg-white p-3 rounded-2xl shadow-sm">
-            <div class="text-xs text-gray-500">By Order</div>
-            <div class="font-semibold">Fresh</div>
-          </div>
-          <div class="bg-white p-3 rounded-2xl shadow-sm">
-            <div class="text-xs text-gray-500">Bahan</div>
-            <div class="font-semibold">Lokal</div>
-          </div>
-          <div class="bg-white p-3 rounded-2xl shadow-sm">
-            <div class="text-xs text-gray-500">Higiene</div>
-            <div class="font-semibold">Higienis</div>
-          </div>
-        </div>
-      </div>
+    <div class="absolute inset-0 bg-black/55 z-10"></div>
 
-      <div class="relative">
-        <div class="rounded-3xl overflow-hidden shadow-lg">
-          <img src="images/hero-gipang.jpg" alt="Gipang Hero" class="w-full h-80 object-cover" />
+    <div class="relative max-w-6xl mx-auto px-4 h-full flex items-center z-20">
+      <div class="text-center w-full">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg">Gipang Khas Banten</h1>
+        <p class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">Renyah, gurih & manis — langsung dibuat setelah Anda pesan.</p>
+        <div class="mt-8 flex justify-center gap-3">
+          <a href="#produk" class="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold shadow-lg">Lihat Produk</a>
+          <button onclick="openOrderModal()" class="px-6 py-3 rounded-full border border-yellow-200 text-yellow-100 hover:bg-yellow-50/20">Pesan Custom</button>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Produk grid (elegant UI like before but only 2 products) -->
   <section id="produk" class="py-12">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex items-center justify-between mb-6">
@@ -103,49 +100,46 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <!-- Card 1: Gipang Original -->
         <article class="bg-white rounded-2xl shadow p-4 flex flex-col">
           <div class="overflow-hidden rounded-lg">
-            <img src="images/gipang-original.jpg" alt="Gipang Original" class="card-img" />
+            <img src="4.jpg" alt="Gipang Khas Banten" class="card-img" />
           </div>
-          <h3 class="mt-4 font-bold text-lg">Gipang Original</h3>
-          <p class="text-sm text-gray-600 mt-1">Renyah, manis, dan gurih khas tradisional. Pilihan favorit keluarga.</p>
+          <h3 class="mt-4 font-bold text-lg">Gipang Selai Kacang</h3>
+          <p class="text-sm text-gray-600 mt-1">Renyah, manis, dan gurih khas tradisional. Cocok untuk camilan & hantaran.</p>
           <div class="mt-3 flex items-center justify-between">
             <div>
-              <div class="font-semibold">Rp 10.000 / pcs</div>
+              <div class="font-semibold">Rp 25.000 / pcs</div>
               <div class="text-xs text-gray-500">Estimasi pembuatan: 1 hari</div>
             </div>
           </div>
           <div class="mt-4 grid grid-cols-2 gap-2 mt-auto">
-            <button onclick="openOrderModal('Gipang Original','10000')" class="px-3 py-2 rounded-xl border border-gray-200 hover:bg-gray-50">Pesan Sekarang</button>
-            <button onclick="quickWa('Gipang Original','10000')" class="px-3 py-2 rounded-xl bg-rose-600 text-white hover:bg-rose-700">Chat WA</button>
+            <button onclick="openOrderModal('Gipang Original','25000')" class="px-3 py-2 rounded-xl border border-gray-200 hover:bg-gray-50">Pesan Sekarang</button>
+            <button onclick="quickWa('Gipang Original',25000)" class="px-3 py-2 rounded-xl bg-rose-600 text-white hover:bg-rose-700">Chat WA</button>
           </div>
         </article>
 
-        <!-- Card 2: Gipang Selai -->
         <article class="bg-white rounded-2xl shadow p-4 flex flex-col">
           <div class="overflow-hidden rounded-lg">
-            <img src="images/gipang-selai.jpg" alt="Gipang Selai" class="card-img" />
+            <img src="6.jpg" alt="Gipang Selai" class="card-img" />
           </div>
-          <h3 class="mt-4 font-bold text-lg">Gipang Selai</h3>
-          <p class="text-sm text-gray-600 mt-1">Gipang yang sama renyahnya namun diberi olesan selai premium — lebih manis & lembut.</p>
+          <h3 class="mt-4 font-bold text-lg">Gipang Selai Kacang Plus Wijen</h3>
+          <p class="text-sm text-gray-600 mt-1">Gipang renyah dengan olesan selai dan wijen premium — lebih lembut dan manis.</p>
           <div class="mt-3 flex items-center justify-between">
             <div>
-              <div class="font-semibold">Rp 12.000 / pcs</div>
+              <div class="font-semibold">Rp 30.000 / pcs</div>
               <div class="text-xs text-gray-500">Estimasi pembuatan: 1 hari</div>
             </div>
           </div>
           <div class="mt-4 grid grid-cols-2 gap-2 mt-auto">
-            <button onclick="openOrderModal('Gipang Selai','12000')" class="px-3 py-2 rounded-xl border border-gray-200 hover:bg-gray-50">Pesan Sekarang</button>
-            <button onclick="quickWa('Gipang Selai','12000')" class="px-3 py-2 rounded-xl bg-rose-600 text-white hover:bg-rose-700">Chat WA</button>
+            <button onclick="openOrderModal('Gipang Selai','30000')" class="px-3 py-2 rounded-xl border border-gray-200 hover:bg-gray-50">Pesan Sekarang</button>
+            <button onclick="quickWa('Gipang Selai',30000)" class="px-3 py-2 rounded-xl bg-rose-600 text-white hover:bg-rose-700">Chat WA</button>
           </div>
         </article>
 
-        <!-- Empty/Promo Card to keep 3-column balance -->
         <div class="bg-gradient-to-br from-rose-50 to-amber-50 rounded-2xl p-6 flex flex-col justify-between shadow-sm">
           <div>
             <h4 class="font-bold text-lg">Pesan Custom</h4>
-            <p class="text-sm text-gray-600 mt-2">Butuh jumlah besar atau kemasan khusus? Klik tombol pesan custom.</p>
+            <p class="text-sm text-gray-600 mt-2">Butuh jumlah besar, kemasan kado, atau acara khusus? Klik pesan custom.</p>
           </div>
           <div class="mt-4">
             <button onclick="openOrderModal()" class="w-full px-4 py-2 rounded-xl border border-rose-200 text-rose-700 hover:bg-rose-50">Pesan Custom / Tanyakan</button>
@@ -155,55 +149,51 @@
     </div>
   </section>
 
-  <!-- Cara Pesan -->
   <section id="cara" class="py-12 bg-rose-50">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl font-bold mb-4">Cara Pemesanan</h2>
       <div class="grid md:grid-cols-4 gap-4 text-sm">
         <div class="bg-white p-4 rounded-2xl shadow-sm">1. Pilih menu</div>
-        <div class="bg-white p-4 rounded-2xl shadow-sm">2. Chat / Isi form</div>
+        <div class="bg-white p-4 rounded-2xl shadow-sm">2. Chat atau isi form</div>
         <div class="bg-white p-4 rounded-2xl shadow-sm">3. Konfirmasi & DP</div>
         <div class="bg-white p-4 rounded-2xl shadow-sm">4. Kami buat & antar / ambil</div>
       </div>
     </div>
   </section>
 
-  <!-- Galeri + Testimoni (keperluan laporan KKM) -->
   <section id="galeri" class="py-12">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl font-bold mb-4">Galeri Pesanan</h2>
       <div class="grid md:grid-cols-4 gap-4">
-        <img src="images/galeri-1.jpg" alt="galeri" class="rounded-xl h-40 w-full object-cover" />
-        <img src="images/galeri-2.jpg" alt="galeri" class="rounded-xl h-40 w-full object-cover" />
-        <img src="images/galeri-3.jpg" alt="galeri" class="rounded-xl h-40 w-full object-cover" />
-        <img src="images/galeri-4.jpg" alt="galeri" class="rounded-xl h-40 w-full object-cover" />
+        <img src="1.jpg" alt="galeri" class="rounded-xl h-40 w-full object-cover" />
+        <img src="2.jpg" alt="galeri" class="rounded-xl h-40 w-full object-cover" />
+        <img src="3.jpg" alt="galeri" class="rounded-xl h-40 w-full object-cover" />
+        <img src="4.jpg" alt="galeri" class="rounded-xl h-40 w-full object-cover" />
       </div>
     </div>
   </section>
 
-  <!-- Kontak -->
   <section id="kontak" class="py-12 bg-rose-50">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
       <div>
         <h3 class="text-2xl font-bold">Kontak & Lokasi</h3>
-        <p class="mt-2 text-gray-600">Jl. Contoh No.123, Desa Suci. Jam layanan: 08.00–20.00 WIB</p>
-        <p class="mt-3">WA: <a id="waText" href="#" class="text-rose-600 font-semibold">+62 812-3456-7890</a></p>
+        <p class="mt-2 text-gray-600">Jl. Kampung Suci RT/RW 001/001 Kelurahan Terumbu, Kecamatan Kasemen, Serang-Banten. Jam layanan: 08.00–20.00 WIB</p>
+        <p class="mt-3">WA: <a id="waText" href="#" class="text-rose-600 font-semibold">+62 878-3058-1843</a></p>
         <div class="mt-4 flex gap-3">
           <a id="ctaBottom" href="#" class="bg-rose-600 text-white px-4 py-2 rounded-xl">Chat WhatsApp</a>
           <button onclick="openOrderModal()" class="px-4 py-2 rounded-xl border border-rose-200">Form Order</button>
         </div>
       </div>
       <div>
-        <iframe class="w-full h-64 rounded-xl border-0" src="https://www.google.com/maps/embed?pb=" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d572.3432307604554!2d106.19182719752973!3d-6.07764225967213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e41f4835306fa2b%3A0xabd12befb7b45527!2sJl.%20Kp.%20Suci%2C%20Kec.%20Kasemen%2C%20Kota%20Serang%2C%20Banten%2042191!5e1!3m2!1sid!2sid!4v1756894127835!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-64 rounded-xl border-0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-gray-900 text-white">
     <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-sm">
       <div>
-        <div class="font-semibold">Gipang Enak</div>
+        <div class="font-semibold">Gipang Khas Banten</div>
         <div class="text-gray-400 mt-2">Home bakery • By order • Fresh dibuat setiap pesanan</div>
       </div>
       <div>
@@ -215,13 +205,11 @@
         <div class="text-gray-400 mt-2">08.00 — 20.00 WIB</div>
       </div>
     </div>
-    <div class="border-t border-white/10 text-center py-4 text-xs text-gray-400">© 2025 Gipang Enak</div>
+    <div class="border-t border-white/10 text-center py-4 text-xs text-gray-400">© 2025 Gipang Khas Banten</div>
   </footer>
 
-  <!-- Floating WA -->
   <a id="floatWa" href="#" class="fixed bottom-6 right-6 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600">WhatsApp</a>
 
-  <!-- Order Modal (same pattern as earlier) -->
   <div id="orderModal" class="fixed inset-0 bg-black/50 z-50 hidden">
     <div class="min-h-full flex items-end sm:items-center justify-center p-4">
       <div class="w-full sm:max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -288,79 +276,78 @@
   </div>
 
   <script>
-    // ---------- CONFIG ----------
-    // Ganti dengan nomor WA UMKM (format internasional tanpa +) contoh: 6281234567890
-    const WA_NUMBER = "6281234567890";
+    const WA_NUMBER = "6287830581843";
 
-    // Product quick map (name -> price string)
+    /* Product price map (for display in modal) */
     const PRODUCTS = {
-      "Gipang Original": { price: 10000 },
-      "Gipang Selai": { price: 12000 }
+      "Gipang Original": { price: 25000 },
+      "Gipang Selai": { price: 30000 }
     };
 
-    // ---------- Helpers ----------
+    // helpers
     const $ = (s) => document.querySelector(s);
     const $$ = (s) => document.querySelectorAll(s);
-    function formatRupiah(n) {
-      return 'Rp ' + Number(n).toLocaleString('id-ID');
-    }
-    function todayISO() {
-      const d = new Date();
-      d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); // local date
-      return d.toISOString().split('T')[0];
-    }
+    function formatRupiah(n) { return 'Rp ' + Number(n).toLocaleString('id-ID'); }
+    function todayISO(){ const d=new Date(); d.setMinutes(d.getMinutes()-d.getTimezoneOffset()); return d.toISOString().split('T')[0]; }
 
-    // ---------- Init links & UI ----------
-    function setWaLinks() {
+    // mobile nav
+    $('#mobileBtn').addEventListener('click', ()=> $('#mobileNav').classList.toggle('hidden'));
+
+    // set initial WA links and footer link
+    function setWaLinks(){
       const base = `https://wa.me/${WA_NUMBER}`;
       $('#ctaTop').href = base;
       $('#ctaBottom').href = base;
       $('#floatWa').href = base;
       $('#waText').href = base;
+      // floating text
       $('#floatWa').textContent = 'WhatsApp';
-      $('#ctaTop').textContent = 'Pesan via WhatsApp';
-      $('#ctaBottom').textContent = 'Chat WhatsApp';
-      // replace placeholder WA links in product cards
-      $$('a[href*="wa.me/WA_NUMBER"]').forEach(a => a.href = base + a.getAttribute('data-text') ? (base + '?text=' + encodeURIComponent(a.getAttribute('data-text'))) : base);
     }
 
-    // Mobile nav toggle
-    $('#mobileBtn').addEventListener('click', () => {
-      $('#mobileNav').classList.toggle('hidden');
-    });
-
-    // set min date for date input
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('custDate').setAttribute('min', todayISO());
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // set min date for date input
+      $('#custDate').setAttribute('min', todayISO());
       setWaLinks();
+
+      // === SCRIPT BARU UNTUK CAROUSEL ===
+      const carouselImages = document.querySelectorAll('#heroCarousel .hero-carousel-img');
+      let currentImageIndex = 0;
+      const changeInterval = 5000; // ganti gambar setiap 5 detik
+
+      function showNextImage() {
+        carouselImages[currentImageIndex].classList.remove('active');
+        currentImageIndex = (currentImageIndex + 1) % carouselImages.length;
+        carouselImages[currentImageIndex].classList.add('active');
+      }
+
+      setInterval(showNextImage, changeInterval);
+      // === AKHIR SCRIPT BARU ===
     });
 
-    // ---------- Order modal behavior ----------
+    // Modal functions
     function openOrderModal(name = '', price = '') {
       $('#orderModal').classList.remove('hidden');
       $('#menuName').value = name || '';
       $('#menuPrice').value = price || '';
       $('#custMenu').value = name || '';
       $('#custPrice').value = price ? formatRupiah(price) : '';
-      // focus name
-      setTimeout(() => $('#custName').focus(), 100);
+      setTimeout(()=> $('#custName').focus(), 120);
     }
-    function closeOrderModal() {
+    function closeOrderModal(){
       $('#orderModal').classList.add('hidden');
       $('#orderForm').reset();
-      // clear readonly fields
       $('#custMenu').value = '';
       $('#custPrice').value = '';
     }
 
-    // quick WA open from card (without form)
-    function quickWa(menu, price) {
+    // quick chat from card
+    function quickWa(menu, price){
       const text = `Halo, saya mau tanya ketersediaan *${menu}* (harga ${formatRupiah(price)}).%0A%0AFormat order:%0A- Nama:%0A- Jumlah:%0A- Tanggal ambil:%0A- Metode (ambil/antar):%0A- Catatan:`;
       window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank');
     }
 
-    // handle form submit -> build message then open WA
-    function handleOrder(evt) {
+    // handle form submit -> open WA with formatted message
+    function handleOrder(evt){
       evt.preventDefault();
       const name = $('#custName').value.trim();
       const phone = $('#custPhone').value.trim();
@@ -371,33 +358,27 @@
       const method = $('#custMethod').value;
       const notes = $('#custNotes').value.trim();
 
-      if (!menu) { alert('Pilih menu terlebih dahulu'); return; }
-      if (!date) { alert('Pilih tanggal ambil/kirim'); return; }
+      if(!menu){ alert('Pilih menu terlebih dahulu'); return; }
+      if(!date){ alert('Pilih tanggal ambil/kirim'); return; }
 
       const subtotal = price * qty;
       let message = `Halo, saya ingin memesan Gipang:%0A- Menu: ${menu}%0A- Harga: ${formatRupiah(price)}%0A- Jumlah: ${qty} pcs%0A- Subtotal: ${formatRupiah(subtotal)}%0A- Nama: ${name || '-'}%0A`;
-      if (phone) message += `- No WA pemesan: ${phone}%0A`;
+      if(phone) message += `- No. WA pemesan: ${phone}%0A`;
       message += `- Tanggal ambil/kirim: ${date}%0A- Metode: ${method}%0A`;
-      if (notes) message += `- Catatan: ${notes}%0A`;
+      if(notes) message += `- Catatan: ${notes}%0A`;
       message += `%0ATerima kasih.`;
 
       window.open(`https://wa.me/${WA_NUMBER}?text=${message}`, '_blank');
       closeOrderModal();
     }
 
-    // attach handlers for pre-filled product buttons (those with onclick in markup)
-    // (already set inline onclick: openOrderModal('Name','price'); quickWa(...))
-    // But to be safe, ensure WA_NUMBER is used for floating buttons:
-    $('#floatWa').href = `https://wa.me/${WA_NUMBER}`;
-    $('#ctaTop').href = `https://wa.me/${WA_NUMBER}`;
-    $('#ctaBottom').href = `https://wa.me/${WA_NUMBER}`;
-    $('#waText').href = `https://wa.me/${WA_NUMBER}`;
-
-    // expose functions to global (used by onclick inline)
+    // expose functions used inline
     window.openOrderModal = openOrderModal;
-    window.closeOrderModal = closeOrderModal;
     window.quickWa = quickWa;
     window.handleOrder = handleOrder;
+
+    // Attach submit handler (in case)
+    document.getElementById('orderForm').addEventListener('submit', handleOrder);
   </script>
 </body>
 </html>
